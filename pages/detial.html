@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><text x='0' y='12' font-size='12'>📋</text></svg>">
+    <title>Content details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css"> <!-- 引入外部CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.0/themes/prism.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.0/prism.js"></script>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <img src="../imgs/lefttop_logo.png" alt="Logo">
+        <a href="../index.html">⭐ Introduction</a>
+        <a href="detial.html" class="active">📋 Content details</a>
+        <a href="timeline.html">📅 Time arrangement</a>
+        <a href="organizers.html">🧑‍🤝‍🧑 Presenters</a>
+        <a href="resource.html">🔗 Resources</a>
+    </div>
+
+    <!-- 内容部分 -->
+    <div class="content">
+        <div class="container">
+            <!-- 顶部标题 -->
+            <div class="header">
+                <h1>📋 Content details</h1>
+            </div>
+
+            <!-- 任务内容 -->
+            <div class="section">
+                <h3>The content of the tutorial is planned as below:</h3>
+                <ul class="task-list">
+                    <li><b><u>Introduction</u></b>: Graph representation learning has emerged as a vital area of research,  enabling the analysis of complex data represented as graphs [Zhang et al., 2020]. However,  existing methods often struggle with noisy/incomplete structures,  the loss of critical graph structures in the representation learning space,  and failing to uncover the underlying structural factors. These challenges lead to distortion in graph representation  learning, i.e., loss of information in the graph's intrinsic complex structure and topological properties,  which inevitably degrades model performance. This tutorial will introduce research on low-distortion graph  representation learning, encompassing information-theoretic graph representation learning,  geometry-guided graph representation learning,  and invariance-guided graph representation learning. The goal is to introduce state-of-the-art methods that can be  utilized to minimize distortion while enhancing the performance of graph representation learning methods.</li>
+                    <li><b><u>Information-theoretic graph representation learning </u></b>: Information theory [Kullback, 1997] provides a theoretical framework for efficiently learning, processing,  and transmitting information, as well as representing it effectively [Principe, 2010],  which aligns to some extent with the objectives of representation learning. Following the immense success of  information-theoretic methods on image,language, audio, etc., very recently,  there has been increasing interest in applying information-theoretic methods to the structured graph data. Analyzing and  extracting the information from the complex node features and irregular structure is fundamental in graph learning,  and important efforts have been invested in developing models to obtain low-distortion representations. By measuring the  uncertainty,  entropy facilitates efficient feature selection and prioritizes informative structures for complex graph data.  Representative methods include REM [Liu et al., 2019], SEP [Wu et al., 2022a],  etc. By quantifying the dependence and discrepancies between distributions,  mutual information and divergence facilitate retaining the critical dependencies,  and constraints enforce distributional realism. Representative methods include InfoGraph [Sun et al., 2020],  GraphVAE [Simonovsky and Komodakis, 2018], etc. By balancing between information compression and retention,  information theoretic principles such as the Information Bottleneck facilitate task-oriented lowdistortion  representation learning. Representative methods include GIB [Wu et al., 2020], VIB-GSL [Sun et al., 2022],  etc. By grounding graph representation learning in information theory,  we achieve rigorous control over the distortioncompression trade-off,  unlocking scalable and interpretable models for complex relational data.</li>
+                    <li><b><u>Geometry-guided graph representation learning </u></b>: Graph Geometry, or Network Geometry, has raised as a burgeoning research focus within the graph learning community, providing novel perspectives for studying the topological structure and properties of graphs.  Traditional machine learning methods typically learn data representations in Euclidean spaces, whereas the non-Euclidean geometric structure of graphs inevitably leads to topological distortion in their embeddings/representations.  From the perspective of graph geometry, graph structures should be regarded as discretizations of continuous manifolds in non-Euclidean geometry.  Riemannian geometry, in particular, provides an elegant and rigorous mathematical framework for advancing research in graph machine learning.  Riemannian geometric space is a non-Euclidean geometric structure, which includes a spherical space with positive curvature, a Euclidean space with zero curvature and a hyperbolic space with negative curvature.  Graph geometry has developed a lot of related work in recent years due to its ability to provide low-distortion priors and inductive biases for graph representation learning.  It can be summarized into two types: Continuous space-based Riemannian graph learning and discrete curvature-based Euclidean graph learning.  Riemannian geometric graph learning is to extend the graph learning from Euclidean space to the Riemannian space, to preserving the topological properties of the graph as much as possible to achieve the lowdistortion graph representations.  Representative methods include HNN [Ganea et al., 2018], HGCN [Chami et al., 2019], Mixed-Curvature [Gu et al., 2019], κ-GCN [Bachmann et al., 2020], ACE-HGNN [Fu et al., 2021], etc.  The discrete curvature Graph learning is to use curvature defined on discrete structures (e.g., Ricci curvature) as an inductive bias of traditional graph learning to improve the model to capture special structures or to explore and breakthrough the performance bottleneck of GNNs.  Representative methods include CurvGN [Ye et al., 2019], CurvGAN [Li et al., 2022d], SDRF [Topping et al., 2022], CurvGIB [Fu et al., 2025], etc.</li>
+                    <li><b><u>Invariance-guided graph representation learning </u></b>: Backed by causality theory, invariant graph learning aims to separate task-invariant and task-variant parts of the original graph. It assumes that the information of each graph instance includes two parts, i.e., an invariant part whose relationship with the task label is stable across different environments, and a variant part whose relationship with the label can change across different environments. By exploiting task-invariant patterns in representation learning while disregarding the variant spurious correlations, invariant graph learning can provably reduce distortion and make accurate predictions, especially under distribution shifts. Along this line, there are mainly two types of graph invariant learning methods: invariance optimization and explicit representation alignment. For invariance optimization, the goal is to optimize the representation learning model with invariance regularizers. Representative examples including GIL [Li et al., 2022c], DIR [Wu et al., 2022c], EERM [Wu et al., 2022b], FLOOD [Liu et al., 2023], DIDA [Zhang et al., 2022], etc. For explicit representation alignment, the key idea is to explicitly align the graph representations among multiple environments (or domains). Typical examples including SR-GNN [Zhu et al., 2021], StableGL [Zhang et al., 2023]. A more challenging scenario is when the downstream tasks are unknown, e.g., in the self-supervised training or pre-training paradigm. In these cases, the invariance principle is instantiated as de-correlating different dimensions or latent factors of representations. Typical examples including OOD-GNN [Li et al., 2022a], IDGCL [Li et al., 2022b], and OOD-GCL [Li et al., 2024].</li>
+                    <li><b><u>Discussion and Future Directions</u></b>: It is valuable to discuss the open issues and future directions: <br>
+                            <div class="latex-list">
+                                <div class="sub-item">
+                                    <b>•</b> More advanced theories.  Though three categories of methods for low-distortion GRL have been discussed, existing theoretical analyses provide different angles for understanding distortion.  Therefore, more advanced and potentially unified theories are still required to guarantee the effectiveness of low-distortion GRL.
+                                </div>
+                                <div class="sub-item">
+                                    <b>•</b> Low-distortion in graph large language models (GraphLLM) and graph foundation models (GFM).  Inspired by the success of LLMs in other domains, GraphLLM and GFM have received ever-increasing attention in the past two years.  Existing low-distortion GRL mostly focuses on traditional models such as GNNs.  How to combine the strengths of low-distortion GRL and these more advanced GRL models remains to be further explored.
+                                </div>
+                                <div class="sub-item">
+                                    <b>•</b> Application in Graph for Science.   With the fast development of interdisciplinary research, GRL has been applied to various scientific fields, such as bio-informatics, physical simulation, material designs, etc.   How to apply lowdistortion GRL into these broad applications can further increase the application value and benefit broad audience in the scientific community.
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>References</h3>
+                <div class="references">
+                <p>[Bachmann et al., 2020] Gregor Bachmann, Gary Bécigneul, and Octavian-Eugen Ganea. Constant curvature graph convolutional networks. In Proceedings of the 37th International Conference on Machine Learning, pages 486-496, 2020. <br></p>
+                <p>[Chami et al., 2019] Ines Chami, Rex Ying, Christopher Re, and Jure Leskovec. Hyperbolic graph convolutional neural networks. In Proceedings of the 33rd International Conference on Neural Information Processing Systems, pages 4868-4879, 2019. <br></p>
+                <p>[Fu et al., 2021] Xingcheng Fu, Jianxin Li, Jia Wu, Qingyun Sun, Cheng Ji, Senzhang Wang, Jiajun Tan, Hao Peng, and S Yu Philip. Ace-hgnn: Adaptive curvature exploration hyperbolic graph neural network. In 2021 IEEE international conference on data mining (ICDM), pages 111-120. IEEE, 2021. <br></p>
+                <p>[Fu et al., 2025] Xingcheng Fu, Jian Wang, Yisen Gao, Qingyun Sun, Haonan Yuan, Jianxin Li, and Xianxian Li. Discrete curvature graph information bottleneck. In AAAI, 2025. <br></p>
+                <p>[Ganea et al., 2018] Octavian Ganea, Gary Becigneul, and Thomas Hofmann. Hyperbolic neural networks. In Advances in Neural Information Processing Systems, volume 31, 2018. <br></p>
+                <p>[Gu et al., 2019] Albert Gu, Frederic Sala, Beliz Gunel, and Christopher Ré. Learning mixed-curvature representations in product spaces. In International conference on learning representations, 2019. <br></p>
+                <p>[Kullback, 1997] Solomon Kullback. Information theory and statistics. Courier Corporation, 1997.<br></p>
+                <p>[Li et al., 2022a] Haoyang Li, Xin Wang, Ziwei Zhang, and Wenwu Zhu.  Ood-gnn: Out-of-distribution generalized graph neural network.  IEEE Transactions on Knowledge and Data Engineering, 35(7):7328-7340, 2022.<br></p>
+                <p>[Li et al., 2022b] Haoyang Li, Ziwei Zhang, Xin Wang, and Wenwu Zhu.  Disentangled graph contrastive learning with independence promotion.  IEEE Transactions on Knowledge and Data Engineering, 35(8):7856-7869, 2022.<br></p>
+                <p>[Li et al., 2022c] Haoyang Li, Ziwei Zhang, Xin Wang, and Wenwu Zhu.  Learning invariant graph representations for out-of-distribution generalization.  Advances in Neural Information Processing Systems, 35:11828-11841, 2022.<br></p>
+                <p>[Li et al., 2022d] Jianxin Li, Xingcheng Fu, Qingyun Sun, Cheng Ji, Jiajun Tan, Jia Wu, and Hao Peng.  Curvature graph generative adversarial networks.  In Proceedings of the ACM Web Conference 2022, pages 1528-1537, 2022.<br></p>
+                <p>[Li et al., 2024] Haoyang Li, Xin Wang, Zeyang Zhang, Haibo Chen, Ziwei Zhang, and Wenwu Zhu.  Disentangled graph self-supervised learning for out-of-distribution generalization.  In Forty-first International Conference on Machine Learning, 2024.<br></p>
+                <p>[Liu et al., 2019] Yiwei Liu, Jiamou Liu, Zijian Zhang, Liehuang Zhu, and Angsheng Li.  Rem: From structural entropy to community structure deception.  Advances in Neural Information Processing Systems, 32, 2019.<br></p>
+                <p>[Liu et al., 2023] Yang Liu, Xiang Ao, Fuli Feng, Yunshan Ma, Kuan Li, Tat-Seng Chua, and Qing He.  Flood: A flexible invariant learning framework for out-of-distribution generalization on graphs.  In Proceedings of the 29th ACM SIGKDD conference on knowledge discovery and data mining, pages 1548-1558, 2023.<br></p>
+                <p>[Principe, 2010] Jose C Principe.  Information theoretic learning: Renyi's entropy and kernel perspectives.  Springer Science & Business Media, 2010.<br></p>
+                <p>[Simonovsky and Komodakis, 2018] Martin Simonovsky and Nikos Komodakis.  Graphvae: Towards generation of small graphs using variational autoencoders.  In ICANN, pages 412-422.  Springer, 2018.<br></p>
+                <p>[Sun et al., 2020] Fan-Yun Sun, Jordan Hoffmann, Vikas Verma, and Jian Tang.  Infograph: Unsupervised and semisupervised graph-level representation learning via mutual information maximization.  In ICLR, 2020.<br></p>
+                <p>[Sun et al., 2022] Qingyun Sun, Jianxin Li, Hao Peng, Jia Wu, Xingcheng Fu, Cheng Ji, and S Yu Philip.  Graph structure learning with variational information bottleneck.  In Proceedings of the AAAI Conference on Artificial Intelligence, volume 36, pages 4165-4174, 2022.<br></p>
+                <p>[Topping et al., 2022] Jake Topping, Francesco Di Giovanni, Benjamin Paul Chamberlain, Xiaowen Dong, and Michael M Bronstein.  Understanding over-squashing and bottlenecks on graphs via curvature.  In International Conference on Learning Representations, 2022.<br></p>
+                <p>[Wu et al., 2020] Tailin Wu, Hongyu Ren, Pan Li, and Jure Leskovec.  Graph information bottleneck.  NeurIPS, 33:20437-20448, 2020.<br></p>
+                <p>[Wu et al., 2022a] Junran Wu, Xueyuan Chen, Ke Xu, and Shangzhe Li. Structural entropy guided graph hierarchical pooling. In ICML, pages 24017-24030. PMLR, 2022. <br></p>
+                <p>[Wu et al., 2022b] Qitian Wu, Hengrui Zhang, Junchi Yan, and David Wipf. Handling distribution shifts on graphs: An invariance perspective. In International Conference on Learning Representations, 2022. <br></p>
+                <p>[Wu et al., 2022c] Yingxin Wu, Xiang Wang, An Zhang, Xiangnan He, and Tat-Seng Chua. Discovering invariant rationales for graph neural networks. In International Conference on Learning Representations, 2022. <br></p>
+                <p>[Ye et al., 2019] Ze Ye, Kin Sum Liu, Tengfei Ma, Jie Gao, and Chao Chen. Curvature graph network. In International conference on learning representations, 2019. <br></p>
+                <p>[Zhang et al., 2020] Ziwei Zhang, Peng Cui, and Wenwu Zhu. Deep learning on graphs: A survey. IEEE Transactions on Knowledge and Data Engineering, 34(1):249-270, 2020. <br></p>
+                <p>[Zhang et al., 2022] Zeyang Zhang, Xin Wang, Ziwei Zhang, Haoyang Li, Zhou Qin, and Wenwu Zhu. Dynamic graph neural networks under spatio-temporal distribution shift. Advances in neural information processing systems, 35:6074-6089, 2022. <br></p>
+                <p>[Zhang et al., 2023] Shengyu Zhang, Yunze Tong, Kun Kuang, Fuli Feng, Jiezhong Qiu, Jin Yu, Zhou Zhao, Hongxia Yang, Zhongfei Zhang, and Fei Wu. Stable prediction on graphs with agnostic distribution shifts. In The KDD'23 Workshop on Causal Discovery, Prediction and Decision, pages 49-74, 2023. <br></p>
+                <p>[Zhu et al., 2021] Qi Zhu, Natalia Ponomareva, Jiawei Han, and Bryan Perozzi. Shift-robust gnns: Overcoming the limitations of localized graph training data. Advances in Neural Information Processing Systems, 34:27965-27977, 2021.                
+                </div>
+            </div>
+    </div>
+</body>
+</html>
